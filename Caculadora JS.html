@@ -10,7 +10,7 @@
 	
 	<script>
 	function writeNumber(elementId) {
-    var outputValueTo = document.getElementById('field1');
+    var outputValueTo = document.getElementById('calc1');
 
     if (outputValueTo.value == '0' || outputValueTo.value == 'Syntax error') {
     outputValueTo.value = elementId.textContent;
@@ -21,12 +21,12 @@
 }
 
 function cleartxt() {
-  document.getElementById('field1').value = '0';
+  document.getElementById('calc1').value = '0';
   document.getElementById('dec').disabled = false;
 }
 
 function setOperator(elementId) {
-  var outputValueTo = document.getElementById('field1');
+  var outputValueTo = document.getElementById('calc1');
   if (outputValueTo.value == '0' || outputValueTo.value == 'Syntax error') {
     outputValueTo.value = '0';
   } else {
@@ -36,7 +36,7 @@ function setOperator(elementId) {
 }
 
 function setDecimal(elementId, status) {
-  var outputValueTo = document.getElementById('field1');
+  var outputValueTo = document.getElementById('calc1');
   outputValueTo.value += elementId.textContent;
   document.getElementById('dec').disabled = status;
 }
@@ -45,7 +45,7 @@ function calculate() {
 
   try {
 
-    var field1txt = document.getElementById('field1');
+    var field1txt = document.getElementById('calc1');
     if (field1txt.value != '') {
       var calculateResult = eval(field1txt.value);
       field1txt.value = calculateResult;
@@ -60,7 +60,7 @@ function calculate() {
 
 function removeLastNumber() {
 
-  var field1txt = document.getElementById('field1');
+  var field1txt = document.getElementById('calc1');
 
   if (field1txt.value.length == 1 || field1txt.value == '0' || field1txt.value == 'Syntax error') {
     field1txt.value = '0';
@@ -140,7 +140,7 @@ nav ul li {
   <article>
     <div id='content'>
       <div id='content-app'>
-        <input type='text' id='field1' readonly value='0' />
+        <input type='text' id='calc1' readonly value='0' />
         <br /><br />
 		<button onclick='setDecimal(this,true)' id='dec'>.</button>
         <button onclick='writeNumber(this)' id='n2'>9</button>
@@ -170,15 +170,6 @@ nav ul li {
     <br /><br />
   </article>
 </section>	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	</body>
