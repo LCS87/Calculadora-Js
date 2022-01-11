@@ -1,118 +1,120 @@
 <!DOCTYPE html>
 <html lang="por">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CalcCSS.css">
-    
-	   
-	</head>
-	<body> 
-	
-	<script>
-	function writeNumber(elementId) {
-    var outputValueTo = document.getElementById('calc1');
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="CalcCSS.css">
 
-    if (outputValueTo.value == '0' || outputValueTo.value == 'Syntax error') {
-    outputValueTo.value = elementId.textContent;
- } else {
 
-    outputValueTo.value += elementId.textContent;
-  }
-}
+</head>
 
-function cleartxt() {
-  document.getElementById('calc1').value = '0';
-  document.getElementById('dec').disabled = false;
-}
+<body>
 
-function setOperator(elementId) {
-  var outputValueTo = document.getElementById('calc1');
-  if (outputValueTo.value == '0' || outputValueTo.value == 'Syntax error') {
-    outputValueTo.value = '0';
-  } else {
-    outputValueTo.value += elementId.textContent;
-    document.getElementById('dec').disabled = false;
-  }
-}
+  <script>
+    function writeNumber(elementId) {
+      var outputValueTo = document.getElementById('calc1');
 
-function setDecimal(elementId, status) {
-  var outputValueTo = document.getElementById('calc1');
-  outputValueTo.value += elementId.textContent;
-  document.getElementById('dec').disabled = status;
-}
+      if (outputValueTo.value == '0' || outputValueTo.value == 'Syntax error') {
+        outputValueTo.value = elementId.textContent;
+      } else {
 
-function calculate() {
-
-  try {
-
-    var field1txt = document.getElementById('calc1');
-    if (field1txt.value != '') {
-      var calculateResult = eval(field1txt.value);
-      field1txt.value = calculateResult;
+        outputValueTo.value += elementId.textContent;
+      }
     }
-  } catch (err) {
 
-    field1txt.value = 'Syntax error';
+    function cleartxt() {
+      document.getElementById('calc1').value = '0';
+      document.getElementById('dec').disabled = false;
+    }
 
-  }
+    function setOperator(elementId) {
+      var outputValueTo = document.getElementById('calc1');
+      if (outputValueTo.value == '0' || outputValueTo.value == 'Syntax error') {
+        outputValueTo.value = '0';
+      } else {
+        outputValueTo.value += elementId.textContent;
+        document.getElementById('dec').disabled = false;
+      }
+    }
 
-}
+    function setDecimal(elementId, status) {
+      var outputValueTo = document.getElementById('calc1');
+      outputValueTo.value += elementId.textContent;
+      document.getElementById('dec').disabled = status;
+    }
 
-function removeLastNumber() {
+    function calculate() {
 
-  var field1txt = document.getElementById('calc1');
+      try {
 
-  if (field1txt.value.length == 1 || field1txt.value == '0' || field1txt.value == 'Syntax error') {
-    field1txt.value = '0';
-    document.getElementById('dec').disabled = false;
-  } else {
-    field1txt.value = field1txt.value.substring(0, field1txt.value.length - 1);
-  }
-}
-</script>	
+        var field1txt = document.getElementById('calc1');
+        if (field1txt.value != '') {
+          var calculateResult = eval(field1txt.value);
+          field1txt.value = calculateResult;
+        }
+      } catch (err) {
+
+        field1txt.value = 'Syntax error';
+
+      }
+
+    }
+
+    function removeLastNumber() {
+
+      var field1txt = document.getElementById('calc1');
+
+      if (field1txt.value.length == 1 || field1txt.value == '0' || field1txt.value == 'Syntax error') {
+        field1txt.value = '0';
+        document.getElementById('dec').disabled = false;
+      } else {
+        field1txt.value = field1txt.value.substring(0, field1txt.value.length - 1);
+      }
+    }
+  </script>
 
 
-	
-<section>
-  <article>
-    <div id='content'>
-      <div id='content-app'>
-        <input type='text' id='calc1' readonly value='0' />
-        <br /><br />
-		<button onclick='setDecimal(this,true)' id='dec'>.</button>
-        <button onclick='writeNumber(this)' id='n2'>9</button>
-        <button onclick='writeNumber(this)' id='n3'>8</button>
-        <button onclick='writeNumber(this)' id='n4'>7</button>
-        <br /><br />
-        <button onclick='writeNumber(this)' id='n5'>6</button>
-        <button onclick='writeNumber(this)' id='n6'>5</button>
-        <button onclick='writeNumber(this)' id='n7'>4</button>
-        <button onclick='writeNumber(this)' id='n8'>3</button>
-        <br /><br />
-        <button onclick='writeNumber(this)' id='n9'>2</button>
-        <button onclick='writeNumber(this)' id='n0'>1</button>
-        <button onclick='writeNumber(this)' id='n1'>0</button>
-        <button onclick='setOperator(this)' id='sum'>+</button>
-        <br /><br />
-        <button onclick='setOperator(this)' id='sustract'>-</button>
-        <button onclick='setOperator(this)' id='multi'>*</button>
-        <button onclick='setOperator(this)' id='divide'>/</button>
-        <button onclick='cleartxt()' id='C'>C</button>
-        <br /><br />
-        <button onclick='calculate()' id='calcular' style='width:190px'>=</button>
-        <button onclick='removeLastNumber()' id='removeLast'>B</button>
+
+  <section>
+    <article>
+      <div id='content'>
+        <div id='content-app'>
+          <input type='text' id='calc1' readonly value='0' />
+          <br /><br />
+          <button onclick='setDecimal(this,true)' id='dec'>.</button>
+          <button onclick='writeNumber(this)' id='n2'>9</button>
+          <button onclick='writeNumber(this)' id='n3'>8</button>
+          <button onclick='writeNumber(this)' id='n4'>7</button>
+          <br /><br />
+          <button onclick='writeNumber(this)' id='n5'>6</button>
+          <button onclick='writeNumber(this)' id='n6'>5</button>
+          <button onclick='writeNumber(this)' id='n7'>4</button>
+          <button onclick='writeNumber(this)' id='n8'>3</button>
+          <br /><br />
+          <button onclick='writeNumber(this)' id='n9'>2</button>
+          <button onclick='writeNumber(this)' id='n0'>1</button>
+          <button onclick='writeNumber(this)' id='n1'>0</button>
+          <button onclick='setOperator(this)' id='sum'>+</button>
+          <br /><br />
+          <button onclick='setOperator(this)' id='sustract'>-</button>
+          <button onclick='setOperator(this)' id='multi'>*</button>
+          <button onclick='setOperator(this)' id='divide'>/</button>
+          <button onclick='cleartxt()' id='C'>C</button>
+          <br /><br />
+          <button onclick='calculate()' id='calcular' style='width:190px'>=</button>
+          <button onclick='removeLastNumber()' id='removeLast'>B</button>
+        </div>
       </div>
-    </div>
-    <br />
-    <br /><br />
-  </article>
-</section>	
-	
-	
-	</body>
-	
+      <br />
+      <br /><br />
+    </article>
+  </section>
+
+
+</body>
+
 
 
 </html>
